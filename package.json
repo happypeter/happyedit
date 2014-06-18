@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/happypeter/happyedit/issues"
   },
-  "homepage": "https://github.com/happypeter/happyedit"
+  "homepage": "https://github.com/happypeter/happyedit",
+  "dependencies": {
+    "express": "^4.4.3"
+  }
 }
