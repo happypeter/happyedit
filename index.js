@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+var config = require('./config')
+
 var server = require('http').createServer(app);
 var port = 3000;
 
@@ -17,6 +19,7 @@ server.listen(port, function () {
 app.get('/',function(req,res){
   res.render('index',{
     title:'happyedit',
+    socketurl: config.port
   });
 });
 

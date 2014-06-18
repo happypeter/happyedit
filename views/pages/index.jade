@@ -9,9 +9,9 @@ head
 
 body
   textarea#textbox
-  
+
   script.
-    var socket = io("0.0.0.0:3000");
+    var socket = io("#{socketurl}");
     socket.emit('createNote');
     var lastValue = '';
     $("#textbox").on('change keyup paste mouseup', function() {
