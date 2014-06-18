@@ -16,14 +16,12 @@ server.listen(port, function () {
 
 app.get('/',function(req,res){
   res.render('index',{
-    title:'影院热度播报',
+    title:'happyedit',
   });
 });
 
-app.use(express.static(__dirname + '/public'));
-
 var save = function(string) {
-  fs.writeFile("/home/peter/file.txt", string, function(err) {
+  fs.writeFile("/tmp/file.txt", string, function(err) {
     if(err) {
       console.log(err);
     } else {
@@ -35,7 +33,7 @@ var save = function(string) {
 io.sockets.on('connection', function(socket) {
   socket.on('createNote', function() {
     //socket.broadcast.emit('onNoteCreated', data);
-    fs.openSync("/home/peter/file.txt", 'w');
+    fs.openSync("/tmp/file.txt", 'w');
   });
   socket.on('updateNote', function(data) {
     save(data);
