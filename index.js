@@ -9,3 +9,12 @@ server.listen(port, function () {
 });
 
 app.use(express.static(__dirname + '/public'));
+
+var fs = require('fs');
+fs.writeFile("/home/peter/file.txt", "Hey there!", function(err) {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log("The file was saved!");
+  }
+});
