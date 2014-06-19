@@ -1,16 +1,16 @@
 var express = require('express');
 var app = express();
 
-var config = require('./config')
+var config = require('./config');
 
 var server = require('http').createServer(app);
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 3000;
 
 var io = require('socket.io').listen(server);
 var fs = require('fs');
 
-app.set('views','./views/pages')
-app.set('view engine','jade')
+app.set('views','./views/pages');
+app.set('view engine','jade');
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
@@ -43,5 +43,3 @@ io.sockets.on('connection', function(socket) {
     console.log("updateNote");
   });
 });
-
-

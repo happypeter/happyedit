@@ -1,4 +1,4 @@
-var config = {}
+var config = {};
 
-config.serverurl = "0.0.0.0"
+config.serverurl = "0.0.0.0";
 module.exports = config;
