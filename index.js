@@ -35,13 +35,16 @@ var save = function(string) {
   });
 };
 
+var socks = [];
 io.sockets.on('connection', function(socket) {
-  socket.on('createNote', function() {
-    //socket.broadcast.emit('onNoteCreated', data);
-    fs.openSync("/tmp/file.txt", 'w');
-  });
-  socket.on('updateNote', function(data) {
-    save(data);
-    console.log("updateNote");
+  console.log("user connected!");
+  socket.on('change', function (op) {
+    console.log(op);
+    if (op.origin == '+input' || op.origin == 'paste' || op.origin == '+delete') {
+      socks.forEach(function (sock) {
+        if (sock != socket)
+        sock.emit('change', op);
+      });
+    };
   });
 });
