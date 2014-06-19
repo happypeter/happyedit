@@ -45,6 +45,8 @@ io.sockets.on('connection', function(socket) {
     console.log('new body');
     body = body_;
     console.log(body);
+    console.log("-----");
+    save(body);
   });
 
   console.log("user connected!");
@@ -53,7 +55,6 @@ io.sockets.on('connection', function(socket) {
     console.log("change hello");
     if (op.origin == '+input' || op.origin == 'paste' || op.origin == '+delete') {
       socks.forEach(function (sock) {
-        console.log("2222");
         if (sock != socket)
         sock.emit('change', op);
       });
