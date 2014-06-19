@@ -11,6 +11,8 @@ var fs = require('fs');
 
 app.set('views','./views/pages');
 app.set('view engine','jade');
+app.use(express.static(__dirname + '/public'));
+
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);

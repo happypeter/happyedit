@@ -1,0 +1,11 @@
+body
+{
+  margin: 0
+  padding: 0
+  max-width:inherit
+  height: 100%
+}
+html, form, .CodeMirror, .CodeMirror-scroll
+{
+  height: 100%
+}
