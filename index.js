@@ -19,7 +19,7 @@ server.listen(port, function () {
 app.get('/',function(req,res){
   res.render('index',{
     title:'happyedit',
-    socketurl: config.port
+    socketurl: config.serverurl + ":" + port
   });
 });
 
