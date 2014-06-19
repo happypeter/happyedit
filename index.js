@@ -36,12 +36,24 @@ var save = function(string) {
 };
 
 var socks = [];
+var body = "peter";
 io.sockets.on('connection', function(socket) {
+  socks.push(socket);
+  socket.emit('refresh', {body: body});
+
+  socket.on('refresh', function (body_) {
+    console.log('new body');
+    body = body_;
+    console.log(body);
+  });
+
   console.log("user connected!");
   socket.on('change', function (op) {
     console.log(op);
+    console.log("change hello");
     if (op.origin == '+input' || op.origin == 'paste' || op.origin == '+delete') {
       socks.forEach(function (sock) {
+        console.log("2222");
         if (sock != socket)
         sock.emit('change', op);
       });
