@@ -7,8 +7,7 @@ head
   script(src="/socket.io/socket.io.js")
 
 
-  link(rel='stylesheet', href='css/main.css')
-  link(rel='stylesheet', href='peter.css')
+  link(rel='stylesheet', href='main.css')
 
   // codemirror begin
   link(rel='stylesheet', href='http://codemirror.net/lib/codemirror.css')
@@ -43,9 +42,9 @@ body
 
 
   script.
-    var socket = io("#{socketurl}")
-    socket.emit('createNote')
-    var lastValue = ''
+    var socket = io("#{socketurl}");
+    socket.emit('createNote');
+    var lastValue = '';
     $("#textbox").on('change keyup paste mouseup', function() {
       setTimeout(function() {
         if ($("#textbox").val() != lastValue) {
