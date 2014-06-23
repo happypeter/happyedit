@@ -60,12 +60,4 @@ io.sockets.on('connection', function(socket) {
       });
     };
   });
-
-  socket.on('cursorActivity', function (cursor) {
-    socks.forEach(function (sock) {
-    if (sock != socket)
-        sock.emit('cursorActivity', cursor);
-    });
-  });
-
 });
