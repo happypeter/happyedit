@@ -35,10 +35,8 @@ var save = function(string) {
   });
 };
 
-var socks = [];
 var body = "type in text";
 io.sockets.on('connection', function(socket) {
-  socks.push(socket);
   socket.emit('refresh', {body: body});
 
   socket.on('refresh', function (body_) {
@@ -54,10 +52,7 @@ io.sockets.on('connection', function(socket) {
     console.log(op);
     console.log("change hello");
     if (op.origin == '+input' || op.origin == 'paste' || op.origin == '+delete') {
-      socks.forEach(function (sock) {
-        if (sock != socket)
-        sock.emit('change', op);
-      });
+      socket.broadcast.emit('change', op);
     };
   });
 });
