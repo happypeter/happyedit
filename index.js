@@ -36,7 +36,7 @@ var save = function(string) {
 };
 
 var socks = [];
-var body = "type in some text, and it will be saved";
+var body = "type in text";
 io.sockets.on('connection', function(socket) {
   socks.push(socket);
   socket.emit('refresh', {body: body});

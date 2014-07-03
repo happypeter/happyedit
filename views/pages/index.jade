@@ -2,12 +2,9 @@ doctype
 head
   meta(charset="utf-8")
   title #{title}
-  link(href="main.css",rel="stylesheet")
   script(src="https://code.jquery.com/jquery-1.10.2.min.js")
   script(src="/socket.io/socket.io.js")
 
-
-  link(rel='stylesheet', href='main.css')
 
   // codemirror begin
   link(rel='stylesheet', href='http://codemirror.net/lib/codemirror.css')
@@ -16,25 +13,16 @@ head
   script(src='http://codemirror.net/addon/mode/overlay.js')
   script(src='http://codemirror.net/mode/xml/xml.js')
   script(src='http://codemirror.net/mode/markdown/markdown.js')
-  script(src='http://codemirror.net/mode/gfm/gfm.js')
-  // Code block highlighting modes 
-  script(src='http://codemirror.net/mode/javascript/javascript.js')
-  script(src='http://codemirror.net/mode/css/css.js')
-  script(src='http://codemirror.net/mode/htmlmixed/htmlmixed.js')
-  script(src='http://codemirror.net/mode/clike/clike.js')
-  script(src='http://codemirror.net/mode/clojure/clojure.js')
-  script(src='http://codemirror.net/mode/ruby/ruby.js')
   //  codemirror end
 
-
-
+  link(rel='stylesheet', href='main.css')
 
 body
   textarea#textbox
 
   script.
     var editor = CodeMirror.fromTextArea(document.getElementById("textbox"), {
-      mode: 'ruby',
+      mode: 'markdown',
       lineNumbers: true,
       theme: "ambiance"
       });
